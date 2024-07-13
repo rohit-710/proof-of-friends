@@ -11,7 +11,7 @@ const PageLayout = ({ title }: { title?: string }) => {
 
       <div className="pt-10 mb-10 grid place-items-center">
         <Link href="/" passHref>
-          <img src="/chainscout.svg" alt="" />
+          <img src="/pof.svg" alt="" />
         </Link>
 
         <p className="mx-2 text-xl mt-10 h-20 text-white">{title}</p>
