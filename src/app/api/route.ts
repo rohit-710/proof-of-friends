@@ -32,7 +32,7 @@ const generateRandomMetadata = async () => {
 
   const metadata = {
     name: "Random Brussels Event",
-    image: `https://base-frame-xi.vercel.app/9.png`,
+    image: `https://base-frame-xi.vercel.app/pof.png`,
     description: `An event at ${eventDetails.place} on ${eventDetails.date} at ${eventDetails.time} for ${eventDetails.activity}.`,
     attributes: [
       { trait_type: "Place", value: eventDetails.place },
