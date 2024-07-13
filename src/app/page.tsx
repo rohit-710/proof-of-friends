@@ -82,7 +82,7 @@ const Page = () => {
             <div className="absolute top-4 right-4">
               <ConnectButton />
             </div>
-            <div className="flex items-center justify-center h-96 flex-col">
+            <div className="flex flex-col items-center justify-center min-h-screen px-4">
               {isVerified ? (
                 <Event />
               ) : (

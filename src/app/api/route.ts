@@ -7,7 +7,7 @@ const openai = new OpenAI({
 
 const generateRandomMetadata = async () => {
   const prompt =
-    "Generate a random event description for a meetup in Brussels with a place, date, time, and activity. Format the response as JSON with fields 'place', 'date', 'time', and 'activity'.";
+    "Generate a random event description for a meetup in Brussels with a place, date, time, and activity. The date and time should be after July 14, 2024, 11:59 PM but before July 25, 2024. Format the response as JSON with fields 'place', 'date', 'time', and 'activity'.";
   const response = await openai.chat.completions.create({
     model: "gpt-3.5-turbo",
     messages: [{ role: "user", content: prompt }],
@@ -21,7 +21,14 @@ const generateRandomMetadata = async () => {
   }
 
   console.log("OpenAI Response:", eventDescription); // Log OpenAI response
-  const eventDetails = JSON.parse(eventDescription);
+
+  let eventDetails;
+  try {
+    eventDetails = JSON.parse(eventDescription);
+  } catch (error) {
+    console.error("Error parsing JSON from OpenAI response:", error);
+    throw new Error("Error parsing JSON from OpenAI response");
+  }
 
   const metadata = {
     name: "Random Brussels Event",
@@ -35,6 +42,7 @@ const generateRandomMetadata = async () => {
     ],
   };
 
+  console.log("Generated Metadata:", metadata); // Log generated metadata
   return metadata;
 };
 
@@ -46,7 +54,7 @@ export async function POST(request: Request) {
 
   try {
     const metadata = await generateRandomMetadata();
-    console.log("Metadata:", metadata); // Log metadata
+    console.log("Metadata to be sent to Crossmint:", metadata); // Log metadata
 
     const response = await fetch(crossmintURL, {
       method: "POST",
@@ -63,7 +71,7 @@ export async function POST(request: Request) {
 
     if (response.ok) {
       const data = await response.json();
-      return NextResponse.json(data, { status: 200 });
+      return NextResponse.json({ metadata, data }, { status: 200 });
     } else {
       const errorData = await response.json();
       console.log("Crossmint API Error:", errorData); // Log Crossmint API error
