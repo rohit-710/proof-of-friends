@@ -8,6 +8,8 @@ const Mint = () => {
   const hasCreatedOrder = useRef(false);
   const { address } = useAccount();
   const [minting, setMinting] = useState(false);
+  const [signedUp, setSignedUp] = useState(false);
+  const [totalHolders, setTotalHolders] = useState(0);
   const { data: ensName } = useEnsName({ address });
 
   const handleMint = async () => {
@@ -32,7 +34,13 @@ const Mint = () => {
       });
 
       if (response.ok) {
-        alert("NFT minted successfully!");
+        const result = await response.json();
+        alert(
+          `NFT minted successfully with metadata: ${JSON.stringify(
+            result.metadata
+          )}`
+        );
+        setSignedUp(true);
       } else {
         const errorData = await response.json();
         console.error("Minting failed:", errorData);
@@ -54,6 +62,35 @@ const Mint = () => {
     }
   }, [address, ensName]);
 
+  useEffect(() => {
+    const fetchTotalHolders = async () => {
+      try {
+        const response = await fetch(
+          "https://base-sepolia.blockscout.com/api/v2/tokens/0xC81e13D3f873351F44452665c5aa0Ccfbec43007/counters",
+          {
+            method: "GET",
+            headers: {
+              accept: "application/json",
+            },
+          }
+        );
+        const result = await response.json();
+
+        if (result && result.token_holders_count) {
+          setTotalHolders(parseInt(result.token_holders_count));
+        } else {
+          console.error("Error: result is null or undefined", result);
+          setTotalHolders(0); // Set to 0 if the result is not as expected
+        }
+      } catch (error) {
+        console.error("Error fetching total holders:", error);
+        setTotalHolders(0); // Set to 0 in case of an error
+      }
+    };
+
+    fetchTotalHolders();
+  }, []);
+
   return (
     <>
       <div className="flex flex-col justify-center items-center">
@@ -71,6 +108,24 @@ const Mint = () => {
         >
           Event Sign Up
         </button>
+        {signedUp && (
+          <>
+            <p className="mt-4">
+              You can check the list of event attendees{" "}
+              <a
+                href="https://base-sepolia.blockscout.com/token/0xC81e13D3f873351F44452665c5aa0Ccfbec43007?tab=holders"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline"
+              >
+                here
+              </a>
+            </p>
+            <div>
+              <h3 className="mt-4">Total Event Attendees: {totalHolders}</h3>
+            </div>
+          </>
+        )}
       </div>
     </>
   );
