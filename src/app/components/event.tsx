@@ -76,7 +76,7 @@ const Mint = () => {
     const fetchTotalHolders = async () => {
       try {
         const response = await fetch(
-          "https://base-sepolia.blockscout.com/api/v2/tokens/0xC81e13D3f873351F44452665c5aa0Ccfbec43007/counters",
+          "https://base-sepolia.blockscout.com/api/v2/tokens/0x4d8Ebf1088efA6666A8bB082650B70ffD13F7a80/counters",
           {
             method: "GET",
             headers: {
@@ -122,7 +122,7 @@ const Mint = () => {
           <p className="mt-4">
             You can check the list of event attendees{" "}
             <a
-              href="https://base-sepolia.blockscout.com/token/0xC81e13D3f873351F44452665c5aa0Ccfbec43007?tab=holders"
+              href="https://base-sepolia.blockscout.com/token/0x4d8Ebf1088efA6666A8bB082650B70ffD13F7a80?tab=holders"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-500 underline"
