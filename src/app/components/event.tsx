@@ -134,7 +134,7 @@ const Mint = () => {
             <h3 className="mt-4">Total Event Attendees: {totalHolders}</h3>
           </div>
           {metadata && (
-            <div className="mt-4 p-4 border rounded-lg bg-white">
+            <div className="mt-4 p-4 border rounded-lg bg-white text-black">
               <h3 className="text-xl font-bold">Event Details</h3>
               <p>
                 <strong>Place:</strong>{" "}
