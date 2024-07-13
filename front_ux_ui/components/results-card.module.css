@@ -1,0 +1,61 @@
+.burbank {
+  height: 27px;
+  position: relative;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  font-weight: 600;
+  display: inline-block;
+}
+.selectCity {
+  flex: 1;
+  position: relative;
+  line-height: 44px;
+}
+.link,
+.resultsCard,
+.section {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.link {
+  margin-top: -8.5px;
+  width: 195px;
+  box-shadow: 1px -1px 5px rgba(255, 255, 255, 0.4) inset;
+  border-radius: var(--br-9xs);
+  background: linear-gradient(180deg, transparent 80%, #0afeff), #fff;
+  justify-content: flex-start;
+  white-space: nowrap;
+  text-align: center;
+  font-size: var(--font-size-6xl-7);
+  color: var(--color-black);
+  font-family: var(--font-nova-cut);
+}
+.resultsCard,
+.section {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.section {
+  height: 37px;
+  flex: 1;
+  justify-content: space-between;
+  padding: var(--padding-8xs) 0;
+  gap: var(--gap-xl);
+}
+.resultsCard {
+  align-self: stretch;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gray-400);
+  justify-content: flex-start;
+  padding: var(--padding-mini) var(--padding-8xl);
+  text-align: left;
+  font-size: var(--font-size-3xl);
+  color: var(--color-white);
+  font-family: var(--font-inter);
+}
+@media screen and (max-width: 450px) {
+  .burbank {
+    font-size: var(--font-size-lg);
+  }
+}

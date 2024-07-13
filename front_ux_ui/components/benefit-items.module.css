@@ -1,0 +1,112 @@
+.curatedExperiencesFor {
+  position: relative;
+  line-height: 28px;
+}
+.benefitDescriptions,
+.link {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.link {
+  box-shadow: 1px -1px 5px rgba(255, 255, 255, 0.4) inset;
+  border-radius: var(--br-9xs);
+  background: linear-gradient(180deg, transparent 80%, #0afeff), #fff;
+  justify-content: flex-start;
+  padding: var(--padding-32xl) var(--padding-40xl);
+}
+.benefitDescriptions {
+  width: 1143px;
+  justify-content: center;
+  padding: 0 var(--padding-xl);
+}
+.meetNewPeople {
+  position: relative;
+  line-height: 28px;
+}
+.benefitDescriptions1,
+.link1 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.link1 {
+  box-shadow: 1px -1px 5px rgba(255, 255, 255, 0.4) inset;
+  border-radius: var(--br-9xs);
+  background: linear-gradient(180deg, transparent 80%, #0afeff), #fff;
+  padding: var(--padding-32xl) var(--padding-56xl);
+  box-sizing: border-box;
+}
+.benefitDescriptions1 {
+  align-self: stretch;
+}
+.earnRewardsAnd {
+  position: relative;
+  line-height: 28px;
+}
+.benefitItems,
+.link2 {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.link2 {
+  box-shadow: 1px -1px 5px rgba(255, 255, 255, 0.4) inset;
+  border-radius: var(--br-9xs);
+  background: linear-gradient(180deg, transparent 80%, #0afeff), #fff;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: var(--padding-32xl) var(--padding-10xl);
+  box-sizing: border-box;
+}
+.benefitItems {
+  width: 1579px;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--gap-58xl);
+  text-align: center;
+  font-size: var(--font-size-21xl);
+  color: var(--color-gray-300);
+  font-family: var(--font-uchen);
+}
+@media screen and (max-width: 1275px) {
+  .link1 {
+    padding-left: var(--padding-18xl);
+    padding-right: var(--padding-18xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 900px) {
+  .curatedExperiencesFor {
+    font-size: var(--font-size-13xl);
+    line-height: 22px;
+  }
+  .link {
+    padding-left: var(--padding-10xl);
+    padding-right: var(--padding-10xl);
+    box-sizing: border-box;
+  }
+  .earnRewardsAnd,
+  .meetNewPeople {
+    font-size: var(--font-size-13xl);
+    line-height: 22px;
+  }
+  .benefitItems {
+    gap: var(--gap-19xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .curatedExperiencesFor,
+  .earnRewardsAnd,
+  .meetNewPeople {
+    font-size: var(--font-size-5xl);
+    line-height: 17px;
+  }
+  .benefitItems {
+    gap: var(--gap-lgi);
+  }
+}

@@ -1,0 +1,71 @@
+.proofOfFriend {
+  font-family: var(--font-uchen);
+}
+.takeAChanceContainer {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  line-height: 44px;
+  display: inline-block;
+  max-width: 100%;
+  font-family: inherit;
+}
+.proofOfFriend1 {
+  width: 196px;
+  position: relative;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.closing,
+.copyrightContainer {
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.copyrightContainer {
+  width: 760.7px;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 var(--padding-xl) 0 var(--padding-3xl);
+  font-size: var(--font-size-base-7);
+  color: var(--color-gray-100);
+  font-family: var(--font-inter);
+}
+.closing {
+  align-self: stretch;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-25xl-5) var(--padding-3xl) var(--padding-49xl-5)
+    var(--padding-xl);
+  gap: var(--gap-94xl-5);
+  cursor: pointer;
+  text-align: center;
+  font-size: var(--font-size-29xl);
+  color: var(--color-white);
+  font-family: var(--font-nova-cut);
+}
+@media screen and (max-width: 1125px) {
+  .closing {
+    gap: var(--gap-38xl);
+  }
+}
+@media screen and (max-width: 800px) {
+  .takeAChanceContainer {
+    font-size: var(--font-size-19xl);
+    line-height: 35px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .takeAChanceContainer {
+    font-size: var(--font-size-10xl);
+    line-height: 26px;
+  }
+  .closing {
+    gap: var(--gap-9xl);
+  }
+}

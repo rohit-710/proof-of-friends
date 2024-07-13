@@ -1,0 +1,126 @@
+.irlExperiencesFor {
+  margin: 0;
+}
+.chronicallyOnline {
+  margin: 0;
+  font-size: var(--font-size-88xl);
+  font-family: var(--font-nova-cut);
+}
+.irlExperiencesForContainer {
+  position: relative;
+  line-height: 112px;
+  display: inline-block;
+  text-shadow: 0 4px 22px #000;
+  max-width: 100%;
+  z-index: 1;
+}
+.readyForYour {
+  align-self: stretch;
+  position: relative;
+  line-height: 90px;
+}
+.link,
+.takeAChance {
+  flex: 1;
+  max-width: 100%;
+}
+.takeAChance {
+  position: relative;
+  line-height: 44px;
+  display: inline-block;
+}
+.link {
+  box-shadow: 1px -1px 5px rgba(255, 255, 255, 0.4) inset;
+  border-radius: var(--br-9xs);
+  background: linear-gradient(180deg, transparent 80%, #0afeff), #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: var(--padding-11xl) var(--padding-25xl);
+  cursor: pointer;
+}
+.heading1,
+.heroButton,
+.link {
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+.heroButton {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0 var(--padding-8xs);
+  max-width: 100%;
+  font-size: var(--font-size-34xl);
+  color: var(--color-black);
+  font-family: var(--font-uchen);
+}
+.heading1 {
+  width: 666px;
+  backdrop-filter: blur(0);
+  flex-direction: column;
+  padding: 0 0 var(--padding-4xs);
+  z-index: 1;
+}
+.heading1,
+.heroContent,
+.heroHeading {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.heroHeading {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: flex-end;
+  text-align: center;
+  font-size: var(--font-size-18xl-8);
+  font-family: var(--font-nova-cut);
+}
+.heroContent {
+  width: 1652px;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--gap-29xl);
+  text-align: left;
+  font-size: var(--font-size-69xl);
+  color: var(--color-white);
+  font-family: var(--font-uchen);
+}
+@media screen and (max-width: 900px) {
+  .irlExperiencesForContainer {
+    font-size: var(--font-size-25xl);
+    line-height: 67px;
+  }
+  .readyForYour {
+    font-size: var(--font-size-11xl);
+    line-height: 72px;
+  }
+  .takeAChance {
+    font-size: var(--font-size-23xl);
+    line-height: 35px;
+  }
+  .link {
+    padding-left: var(--padding-3xl);
+    padding-right: var(--padding-3xl);
+    box-sizing: border-box;
+  }
+  .heroContent {
+    gap: var(--gap-5xl);
+  }
+}
+@media screen and (max-width: 450px) {
+  .irlExperiencesForContainer {
+    font-size: var(--font-size-7xl);
+    line-height: 45px;
+  }
+  .readyForYour {
+    font-size: var(--font-size-4xl);
+    line-height: 54px;
+  }
+  .takeAChance {
+    font-size: var(--font-size-13xl);
+    line-height: 26px;
+  }
+}

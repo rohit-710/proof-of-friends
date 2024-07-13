@@ -1,0 +1,96 @@
+.span {
+  font-weight: 300;
+  font-family: var(--font-inter);
+}
+.welcomeHome {
+  margin: 0;
+}
+.danyagomezcantueth {
+  margin: 0;
+  font-family: var(--font-inter);
+}
+.welcomeHomeDanyagomezcantuContainer {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  line-height: 95px;
+  font-family: inherit;
+}
+.burbank {
+  flex: 1;
+  position: relative;
+  line-height: 44px;
+}
+.link {
+  width: 195px;
+  box-shadow: 1px -1px 5px rgba(255, 255, 255, 0.4) inset;
+  border-radius: var(--br-9xs);
+  background: linear-gradient(180deg, transparent 80%, #0afeff), #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.wantsToExpand {
+  flex: 1;
+  position: relative;
+  line-height: 44px;
+  display: inline-block;
+  max-width: 100%;
+}
+.link1 {
+  flex: 1;
+  box-shadow: 1px -1px 5px rgba(255, 255, 255, 0.4) inset;
+  border-radius: var(--br-9xs);
+  background: linear-gradient(180deg, transparent 80%, #0afeff), #fff;
+  flex-direction: row;
+  padding: 0 var(--padding-15xl);
+  box-sizing: border-box;
+  min-width: 333px;
+}
+.link1,
+.userLink,
+.welcomeContent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.userLink {
+  width: 738px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--gap-11xl);
+  text-align: center;
+  font-size: var(--font-size-6xl-7);
+  color: var(--color-black);
+  font-family: var(--font-uchen);
+}
+.welcomeContent {
+  flex-direction: column;
+  gap: var(--gap-32xl);
+  text-align: left;
+  font-size: var(--font-size-62xl);
+  color: var(--color-white);
+  font-family: var(--font-nova-cut);
+}
+@media screen and (max-width: 900px) {
+  .welcomeHomeDanyagomezcantuContainer {
+    font-size: var(--font-size-21xl);
+    line-height: 57px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .welcomeHomeDanyagomezcantuContainer {
+    font-size: var(--font-size-5xl);
+    line-height: 38px;
+  }
+  .burbank,
+  .wantsToExpand {
+    font-size: var(--font-size-2xl);
+    line-height: 35px;
+  }
+  .welcomeContent {
+    gap: var(--gap-6xl);
+  }
+}

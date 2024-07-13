@@ -1,0 +1,33 @@
+.continueButtonContainer {
+  width: 1060.7px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-72xl-7);
+  max-width: 100%;
+}
+.continueButtonContainerWrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 var(--padding-xl) 0 var(--padding-2xl);
+  box-sizing: border-box;
+  max-width: 100%;
+  text-align: center;
+  font-size: var(--font-size-71xl);
+  color: var(--color-white);
+  font-family: var(--font-nova-cut);
+}
+@media screen and (max-width: 1125px) {
+  .continueButtonContainer {
+    gap: var(--gap-27xl);
+  }
+}
+@media screen and (max-width: 800px) {
+  .continueButtonContainer {
+    gap: var(--gap-4xl);
+  }
+}
