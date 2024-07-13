@@ -10,9 +10,6 @@ import {
 import { WagmiProvider } from "wagmi";
 import {
   mainnet,
-  arbitrum,
-  optimism,
-  base,
   sepolia,
   scrollSepolia,
   arbitrumSepolia,
@@ -21,12 +18,14 @@ import {
   polygonAmoy,
 } from "wagmi/chains";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
-import React from "react";
+import React, { useState } from "react";
+import { IDKitWidget, VerificationLevel } from "@worldcoin/idkit";
 
 const config = getDefaultConfig({
   appName: "Proof of Friends",
   projectId: process.env.NEXT_PUBLIC_WALLET_CONNECT_ID || "",
   chains: [
+    mainnet,
     sepolia,
     scrollSepolia,
     arbitrumSepolia,
@@ -40,6 +39,41 @@ const config = getDefaultConfig({
 const queryClient = new QueryClient();
 
 const Page = () => {
+  const [isVerified, setIsVerified] = useState(false);
+  const [verificationFailed, setVerificationFailed] = useState(false);
+
+  const verifyProof = async (proof: any) => {
+    // Simulate client-side verification logic
+    try {
+      // Simulate verification with a success response
+      const response = await fetch("https://id.worldcoin.org/api/v1/verify", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ proof }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setIsVerified(true);
+        setVerificationFailed(false);
+      } else {
+        throw new Error("Verification failed");
+      }
+    } catch (error) {
+      console.error("Verification failed", error);
+      setIsVerified(false);
+      setVerificationFailed(true);
+    }
+  };
+
+  const onSuccess = () => {
+    setIsVerified(true);
+    setVerificationFailed(false);
+  };
+
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
@@ -48,8 +82,52 @@ const Page = () => {
             <div className="absolute top-4 right-4">
               <ConnectButton />
             </div>
-            <div className="flex items-center justify-center h-96">
-              <Event />
+            <div className="flex items-center justify-center h-96 flex-col">
+              {isVerified ? (
+                <Event />
+              ) : (
+                <>
+                  <IDKitWidget
+                    app_id="app_staging_50dec3a728d42d0b0f0adfdb3110a5c6"
+                    action="test-action"
+                    verification_level={VerificationLevel.Device}
+                    handleVerify={verifyProof}
+                    onSuccess={onSuccess}
+                  >
+                    {({ open }) => (
+                      <button
+                        onClick={open}
+                        className="bg-blue-500 text-white px-4 py-2 rounded"
+                      >
+                        Verify with World ID
+                      </button>
+                    )}
+                  </IDKitWidget>
+                  {verificationFailed && (
+                    <>
+                      <p className="text-red-500 mt-4">
+                        World ID Verification failed. Please try again.
+                      </p>
+                      <IDKitWidget
+                        app_id="app_staging_50dec3a728d42d0b0f0adfdb3110a5c6"
+                        action="test-action"
+                        verification_level={VerificationLevel.Device}
+                        handleVerify={verifyProof}
+                        onSuccess={onSuccess}
+                      >
+                        {({ open }) => (
+                          <button
+                            onClick={open}
+                            className="bg-red-500 text-white px-4 py-2 rounded mt-2"
+                          >
+                            Retry Verification
+                          </button>
+                        )}
+                      </IDKitWidget>
+                    </>
+                  )}
+                </>
+              )}
             </div>
           </div>
         </RainbowKitProvider>

@@ -1,13 +1,14 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { useAccount } from "wagmi";
+import { useAccount, useEnsName } from "wagmi";
 
 const Mint = () => {
   const hasCreatedOrder = useRef(false);
   const { address } = useAccount();
   const [minting, setMinting] = useState(false);
+  const { data: ensName } = useEnsName({ address });
 
   const handleMint = async () => {
     if (!address) {
@@ -47,12 +48,23 @@ const Mint = () => {
     setMinting(false);
   };
 
+  useEffect(() => {
+    if (address) {
+      console.log(`ENS Name for address ${address}: ${ensName || "None"}`);
+    }
+  }, [address, ensName]);
+
   return (
     <>
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col justify-center items-center">
+        {address && ensName && (
+          <div className="mt-2">
+            <p>ENS: {ensName}</p>
+          </div>
+        )}
         <button
           onClick={handleMint}
-          className={`bg-gradient-to-br from-[#01b15d] to-[#0296a8] hover:bg-gradient-to-br hover:from-[#00ff85] hover:to-[#00e1fc] text-white font-bold py-2 px-4 my-2 rounded ml-3 ${
+          className={`bg-gradient-to-br from-[#01b15d] to-[#0296a8] hover:bg-gradient-to-br hover:from-[#00ff85] hover:to-[#00e1fc] text-white font-bold py-2 px-4 my-2 mt-5 rounded ml-3 ${
             minting ? "opacity-50 cursor-not-allowed" : ""
           }`}
           disabled={minting}
