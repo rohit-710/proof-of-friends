@@ -48,16 +48,6 @@ By VIA Tech Inmersive in Brussels
 - Morph Holesky - `0x12fafF7807fEa4F9597d1b0229D626590e2DC218`
 - Scroll Sepolia - `0x4e45f512Df1259784Ee3977d2b6363a37acFF7ed`
 
-### Requirements
-idk yet.
-
-### Test the app
-The instructions should be here probs.
-
-### Next Steps (Roadmap)
-
-- After we finish
-
 Proof of Friends Baby!
 
 
