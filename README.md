@@ -41,6 +41,13 @@ By VIA Tech Inmersive in Brussels
 - :mag:**Blockscout**: Searching data onchain.
 - :registered:**ENS**: To make an experience better than just having plain ETH addresses as accounts.
 
+###Smart Contracts
+
+- Base Sepolia - `0x4d8Ebf1088efA6666A8bB082650B70ffD13F7a80`
+- Arbitrum Sepolia - `0xD983A1fFCCf8cC27CA848b13E1122e32ee63A4CC`
+- Morph Holesky - `0x12fafF7807fEa4F9597d1b0229D626590e2DC218`
+- Scroll Sepolia - `0x4e45f512Df1259784Ee3977d2b6363a37acFF7ed`
+
 ### Requirements
 idk yet.
 
@@ -52,3 +59,5 @@ The instructions should be here probs.
 - After we finish
 
 Proof of Friends Baby!
+
+
